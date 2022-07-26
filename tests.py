@@ -11,8 +11,8 @@ class Tests(unittest.TestCase):
         neil = Astronaut("Neil", 10)
 
         # Do not change
-        self.assertEqual(neil.name, "Neil")
-        self.assertEqual(neil.work_unit, 10)
+        self.assertEqual(neil.get_name(), "Neil")
+        self.assertEqual(neil.get_work_unit(), 10)
         self.assertEqual(neil.work(2), 20)
         ######
 
