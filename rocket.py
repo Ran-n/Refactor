@@ -41,14 +41,13 @@ class Rocket:
             self.set_fuel(self.get_fuel()-10)
 
     def fuel_per_hour(self):
-        if self.get_name().lower() == "soyuz":
-            return 10
-        if self.get_name().lower() == "n1":
-            return 10
-        if self.get_name().lower() == "apollo":
-            return 8
-        if self.get_name().lower() == "atlas":
-            return 9
+        names = {
+                'soyuz': 10,
+                'n1': 10,
+                'apollo': 8,
+                'atlas': 9
+        }
+        return names[self.get_name().lower()]
 
     def food_per_day(self):
         return len(self.get_crew()) * 3
