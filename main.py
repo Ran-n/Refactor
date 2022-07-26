@@ -1,5 +1,5 @@
-from astronaut import *
-from rocket import *
+from astronaut import Astronaut
+from rocket import Rocket
 
 class GroundControl():
 
