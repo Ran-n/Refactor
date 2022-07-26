@@ -1,60 +1,69 @@
-class Rocket():
+from typing import Optional, List
 
-    def set_name(self, name):
-        self.name = name
+from astronaut import Astronaut
 
-    def get_name(self, name):
-        return self.name
+class Rocket:
+    __name: Optional[str]
+    __fuel: Optional[int]
+    __food: Optional[int]
+    __crew: Optional[List[Astronaut]]
 
-    def set_fuel(self, fuel):
-        self.fuel = fuel
+    def __init__(self, name:str = '', fuel:int = 0, food:int = 0, crew:List[Astronaut] = None):
+        self.__name = name
+        self.__fuel = fuel
+        self.__food = food
+        self.__crew = crew
 
+
+    def set_name(self, new_name:str):
+        self.__name = new_name
+    def get_name(self):
+        return self.__name
+
+    def set_fuel(self, new_fuel:str):
+        self.__fuel = new_fuel
     def get_fuel(self):
-        return self.fuel
+        return self.__fuel
 
-    def set_crew(self, crew):
-        self.crew = crew
-
-    def get_crew(self):
-        return self.crew
-
-    def set_food(self, food):
-        self.food = food
-
+    def set_food(self, new_food:str):
+        self.__food = new_food
     def get_food(self):
-        return self.food
+        return self.__food
+
+    def set_crew(self, new_crew:List[Astronaut]):
+        self.__crew = new_crew
+    def get_crew(self):
+        return self.__crew
+
 
     def launch(self):
-        if self.fuel > 10:
-            self.fuel -= 10
+        if self.get_fuel() > 10:
+            self.set_fuel(self.get_fuel()-10)
 
-    @staticmethod
-    def fuel_per_hour(rocket):
-        if rocket.name.lower() == "soyuz":
+    def fuel_per_hour(self):
+        if self.get_name().lower() == "soyuz":
             return 10
-        if rocket.name.lower() == "n1":
+        if self.get_name().lower() == "n1":
             return 10
-        if rocket.name.lower() == "apollo":
+        if self.get_name().lower() == "apollo":
             return 8
-        if rocket.name.lower() == "atlas":
+        if self.get_name().lower() == "atlas":
             return 9
 
-    @staticmethod
-    def food_per_day(rocket):
-        return len(rocket.get_crew()) * 3
+    def food_per_day(self):
+        return len(self.get_crew()) * 3
 
-    @staticmethod
-    def travel(rocket, destination):
-        rocket.launch()
+    def travel(self, destination):
+        self.launch()
         time = destination[1]
-        consume = Rocket.fuel_per_hour(rocket)
+        consume = self.fuel_per_hour()
         total = time * consume
 
-        food_needed = Rocket.food_per_day(rocket) * time/24
+        food_needed = self.food_per_day() * time/24
 
         total_work = 0
-        if rocket.get_fuel() >= total and food_needed <= rocket.get_food():
-            for crew in rocket.get_crew():
+        if self.get_fuel() >= total and food_needed <= self.get_food():
+            for crew in self.get_crew():
                 total_work += crew.work(time)
             return True, total_work
         else:

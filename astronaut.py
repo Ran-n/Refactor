@@ -1,4 +1,3 @@
-from rocket import Rocket
 from typing import Optional
 
 class Astronaut:

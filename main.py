@@ -18,7 +18,7 @@ class GroundControl():
         elif destination[0] != GroundControl.planets[0][0] and destination[0] != GroundControl.planets[1][0] and destination[0] != GroundControl.planets[2][0]:
             result, work = False, 0
         else:
-            result, work = Rocket.travel(rocket, destination)
+            result, work = rocket.travel(destination)
 
         def report(rocket, astronauts, result):
             return f"The travel has {'succeeded' if result else 'failed'}.\n{len(astronauts)} crew members.\nRocket has {rocket.get_fuel()} fuel left.\nCrew has worked {work} units."

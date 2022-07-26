@@ -26,10 +26,10 @@ class Tests(unittest.TestCase):
         rocket.set_crew(crew)
 
         # Do not change
-        self.assertEqual(rocket.name, "Soyuz")
-        self.assertEqual(rocket.fuel, 100)
-        self.assertEqual(rocket.food, 100)
-        self.assertListEqual(rocket.crew, crew)
+        self.assertEqual(rocket.get_name(), "Soyuz")
+        self.assertEqual(rocket.get_fuel(), 100)
+        self.assertEqual(rocket.get_food(), 100)
+        self.assertListEqual(rocket.get_crew(), crew)
         ######
 
     def test_rocket_no_fuel(self):
