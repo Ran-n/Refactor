@@ -21,10 +21,10 @@ class Astronaut:
     def set_work_unit(self, new_work_unit: int) -> None:
         self.__work_unit = new_work_unit
 
-    def set_on_rocket(self, on_rocket: bool = True) -> int:
-        self.__on_rocket = on_rocket
-    def is_on_rocket(self) -> None:
+    def is_on_rocket(self) -> bool:
         return self.__on_rocket
+    def set_on_rocket(self, on_rocket: bool = True) -> None:
+        self.__on_rocket = on_rocket
 
 
     def work(self, time: int) -> int:
