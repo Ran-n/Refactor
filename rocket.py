@@ -35,7 +35,12 @@ class Rocket:
     def get_crew(self) -> List[Astronaut]:
         return self.__crew
     def add_2_crew(self, new_astronaut:Astronaut) -> None:
-        self.set_crew(self.get_crew().append(astronaut))
+        if self.get_crew() is None:
+            self.set_crew([new_astronaut])
+        else:
+            new_crew = self.get_crew()
+            new_crew.append(new_astronaut)
+            self.set_crew(new_crew)
 
 
     def launch(self) -> None:
