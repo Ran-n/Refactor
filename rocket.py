@@ -34,6 +34,8 @@ class Rocket:
         self.__crew = new_crew
     def get_crew(self):
         return self.__crew
+    def add_2_crew(self, new_astronaut:Astronaut):
+        self.set_crew(self.get_crew().append(astronaut))
 
 
     def launch(self):
@@ -47,6 +49,7 @@ class Rocket:
                 'apollo': 8,
                 'atlas': 9
         }
+
         return names[self.get_name().lower()]
 
     def food_per_day(self):
@@ -67,3 +70,7 @@ class Rocket:
             return True, total_work
         else:
             return False, total_work
+
+    def board_rocket(astronaut):
+        self.add_2_crew(astronaut)
+        astronaut.set_on_rocket()

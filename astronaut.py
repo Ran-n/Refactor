@@ -29,10 +29,3 @@ class Astronaut:
 
     def work(self, time: int):
         return self.get_work_unit() * time
-
-
-    # xFCR: move
-    @staticmethod
-    def board_rocket(rocket, astronaut):
-        rocket.get_crew().append(astronaut)
-        astronaut.set_on_rocket()
