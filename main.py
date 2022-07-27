@@ -1,6 +1,7 @@
 from astronaut import Astronaut
 from rocket import Rocket
 from ground_control import GroundControl
+from planet import Planet
 
 def main():
     rocket = Rocket("Soyuz", 1000, 50)
@@ -8,10 +9,11 @@ def main():
         rocket.add_2_crew(Astronaut("bob"+str(i), i))
 
     planets = [
-        ["moon", 24*3, "moon"],
-        ["mars", 24*30*21, "planet"],
-        ["pluto", 360*24*9.5, "planet?"]
+            Planet("moon", 24*3, "moon"),
+            Planet("mars", 24*30*21, "planet"),
+            Planet("pluto", 360*24*9.5, "planet?")
     ]
+
 
     gc = GroundControl(planets)
 

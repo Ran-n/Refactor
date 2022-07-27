@@ -3,14 +3,15 @@ import unittest
 from astronaut import Astronaut
 from rocket import Rocket
 from ground_control import GroundControl
+from planet import Planet
 
 
 class Tests(unittest.TestCase):
 
     planets = [
-        ["moon", 24*3, "moon"],
-        ["mars", 24*30*21, "planet"],
-        ["pluto", 360*24*9.5, "planet?"]
+            Planet("moon", 24*3, "moon"),
+            Planet("mars", 24*30*21, "planet"),
+            Planet("pluto", 360*24*9.5, "planet?")
     ]
 
     def test_astronaut(self):
@@ -86,7 +87,7 @@ class Tests(unittest.TestCase):
 
         ground_control = GroundControl(self.planets)
 
-        res, work, report = ground_control.mission(rocket, crew, ["uranus", 1, "planet"])
+        res, work, report = ground_control.mission(rocket, crew, Planet("uranus", 1, "planet"))
 
         # Do not change
         self.assertEqual(res, False)

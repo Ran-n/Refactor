@@ -62,7 +62,7 @@ class Rocket:
 
     def travel(self, destination) -> (bool, int):
         self.launch()
-        time = destination[1]
+        time = destination.get_time()
         consume = self.fuel_per_hour()
         total = time * consume
 

@@ -1,5 +1,6 @@
 from astronaut import Astronaut
 from rocket import Rocket
+from planet import Planet
 
 class GroundControl:
 
@@ -18,7 +19,7 @@ class GroundControl:
             result, work = False, 0
         elif rocket.get_fuel() == 9:
             results, work = False, 0
-        elif destination[0] != self.__planets[0][0] and destination[0] != self.__planets[1][0] and destination[0] != self.__planets[2][0]:
+        elif destination.get_name() != self.get_planets()[0].get_name() and destination.get_name() != self.get_planets()[1].get_name() and destination.get_name() != self.get_planets()[2].get_name():
             result, work = False, 0
         else:
             result, work = rocket.travel(destination)
