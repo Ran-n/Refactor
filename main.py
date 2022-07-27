@@ -1,3 +1,6 @@
+#! /usr/bin/env python3
+# -*- coding: utf-8 -*-
+# ------------------------------------------------------------------------------
 from src.astronaut import Astronaut
 from src.rocket import Rocket
 from src.ground_control import GroundControl
