@@ -1,2 +1,0 @@
-- name: coverage.py badge
-  uses: tj-actions/coverage-badge-py@v1.8
