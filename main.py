@@ -1,7 +1,7 @@
-from astronaut import Astronaut
-from rocket import Rocket
-from ground_control import GroundControl
-from planet import Planet
+from src.astronaut import Astronaut
+from src.rocket import Rocket
+from src.ground_control import GroundControl
+from src.planet import Planet
 
 def main():
     rocket = Rocket("Soyuz", 1000, 50)

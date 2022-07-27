@@ -1,8 +1,8 @@
 from typing import Optional, List
 
-from astronaut import Astronaut
-from rocket import Rocket
-from planet import Planet
+from src.astronaut import Astronaut
+from src.rocket import Rocket
+from src.planet import Planet
 
 class GroundControl:
 

@@ -1,6 +1,6 @@
 from typing import Optional, List
 
-from astronaut import Astronaut
+from src.astronaut import Astronaut
 
 class Rocket:
     __name: Optional[str]
