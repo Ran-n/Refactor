@@ -3,19 +3,22 @@ from rocket import Rocket
 
 class GroundControl:
 
-    planets = [
-        ["moon", 24*3, "moon"],
-        ["mars", 24*30*21, "planet"],
-        ["pluto", 360*24*9.5, "planet?"]
-    ]
+    def __init__(self, planets):
+        self.__planets = planets
 
-    @staticmethod
-    def mission(rocket, astronauts, destination):
+
+    def get_planets(self):
+        return self.__planets
+    def set_planets(self, new_planets):
+        self.__planets = new_planets
+
+
+    def mission(self, rocket, astronauts, destination):
         if len(rocket.get_crew()) == 0:
             result, work = False, 0
         elif rocket.get_fuel() == 9:
             results, work = False, 0
-        elif destination[0] != GroundControl.planets[0][0] and destination[0] != GroundControl.planets[1][0] and destination[0] != GroundControl.planets[2][0]:
+        elif destination[0] != self.__planets[0][0] and destination[0] != self.__planets[1][0] and destination[0] != self.__planets[2][0]:
             result, work = False, 0
         else:
             result, work = rocket.travel(destination)

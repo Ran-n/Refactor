@@ -2,10 +2,16 @@ import unittest
 
 from astronaut import Astronaut
 from rocket import Rocket
-from main import GroundControl
+from ground_control import GroundControl
 
 
 class Tests(unittest.TestCase):
+
+    planets = [
+        ["moon", 24*3, "moon"],
+        ["mars", 24*30*21, "planet"],
+        ["pluto", 360*24*9.5, "planet?"]
+    ]
 
     def test_astronaut(self):
         neil = Astronaut("Neil", 10)
@@ -41,7 +47,9 @@ class Tests(unittest.TestCase):
         crew = [Astronaut("Neil", 10)]
         rocket.set_crew(crew)
 
-        res, work, report = GroundControl.mission(rocket, crew, GroundControl.planets[0])
+        ground_control = GroundControl(self.planets)
+
+        res, work, report = ground_control.mission(rocket, crew, ground_control.get_planets()[0])
 
         # Do not change
         self.assertEqual(res, False)
@@ -57,7 +65,9 @@ class Tests(unittest.TestCase):
         rocket.set_food(100)
         rocket.set_crew([])
 
-        res, work, report = GroundControl.mission(rocket, [], GroundControl.planets[0])
+        ground_control = GroundControl(self.planets)
+
+        res, work, report = ground_control.mission(rocket, [], ground_control.get_planets()[0])
 
         # Do not change
         self.assertEqual(res, False)
@@ -74,7 +84,9 @@ class Tests(unittest.TestCase):
         crew = [Astronaut("Neil", 10)]
         rocket.set_crew(crew)
 
-        res, work, report = GroundControl.mission(rocket, crew, ["uranus", 1, "planet"])
+        ground_control = GroundControl(self.planets)
+
+        res, work, report = ground_control.mission(rocket, crew, ["uranus", 1, "planet"])
 
         # Do not change
         self.assertEqual(res, False)

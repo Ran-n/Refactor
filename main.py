@@ -7,7 +7,15 @@ def main():
     for i in range(3):
         rocket.add_2_crew(Astronaut("bob"+str(i), i))
 
-    _, _, report = GroundControl.mission(rocket, rocket.get_crew(), GroundControl.planets[0])
+    planets = [
+        ["moon", 24*3, "moon"],
+        ["mars", 24*30*21, "planet"],
+        ["pluto", 360*24*9.5, "planet?"]
+    ]
+
+    gc = GroundControl(planets)
+
+    _, _, report = gc.mission(rocket, rocket.get_crew(), gc.get_planets()[0])
     print(report)
 
 main()
