@@ -1,16 +1,20 @@
+from typing import Optional, List
+
 from astronaut import Astronaut
 from rocket import Rocket
 from planet import Planet
 
 class GroundControl:
 
-    def __init__(self, planets):
+    __planets: List[Planet]
+
+    def __init__(self, planets: Optional[List[Planet]] = None):
         self.__planets = planets
 
 
-    def get_planets(self):
+    def get_planets(self) -> List[Planet]:
         return self.__planets
-    def set_planets(self, new_planets):
+    def set_planets(self, new_planets: List[Planet]) -> None:
         self.__planets = new_planets
 
 
