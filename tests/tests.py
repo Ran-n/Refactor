@@ -24,20 +24,19 @@ class Tests(unittest.TestCase):
         ######
 
     def test_rocket(self):
-        astronaut = Astronaut("Neil", 10)
-
         rocket = Rocket()
 
         rocket.set_name("Soyuz")
         rocket.set_fuel(100)
         rocket.set_food(100)
-        rocket.add_2_crew(astronaut)
+        crew = [Astronaut("Neil", 10)]
+        rocket.set_crew(crew)
 
         # Do not change
         self.assertEqual(rocket.get_name(), "Soyuz")
         self.assertEqual(rocket.get_fuel(), 100)
         self.assertEqual(rocket.get_food(), 100)
-        self.assertListEqual(rocket.get_crew(), astronaut)
+        self.assertListEqual(rocket.get_crew(), crew)
         ######
 
     def test_rocket_no_fuel(self):
