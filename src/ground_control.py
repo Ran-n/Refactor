@@ -25,9 +25,7 @@ class GroundControl:
         f"Crew has worked {work} units."
 
     def mission(self, rocket: Rocket, astronauts: Astronaut, destination: Planet) -> (bool, int, str):
-        if (len(rocket.get_crew()) == 0) or (rocket.get_fuel() == 9):
-            result, work = False, 0
-        elif destination.get_name() != self.get_planets()[0].get_name() and destination.get_name() != self.get_planets()[1].get_name() and destination.get_name() != self.get_planets()[2].get_name():
+        if (len(rocket.get_crew()) == 0) or (rocket.get_fuel() == 9) or (destination.get_name() not in [ele.get_name() for ele in self.get_planets()]):
             result, work = False, 0
         else:
             result, work = rocket.travel(destination)
