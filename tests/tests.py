@@ -50,11 +50,11 @@ class Tests(unittest.TestCase):
 
         ground_control = GroundControl(self.planets)
 
-        res, work, report = ground_control.mission(rocket, crew, ground_control.get_planets()[0])
+        report = ground_control.mission(rocket, crew, ground_control.get_planets()[0])
 
         # Do not change
-        self.assertEqual(res, False)
-        self.assertEqual(work, 0)
+        self.assertEqual(ground_control.get_mission_result(), False)
+        self.assertEqual(ground_control.get_work(), 0)
         self.assertEqual(report, "The travel has failed.\n1 crew members.\nRocket has 0 fuel left.\nCrew has worked 0 units.")
         ####
 
@@ -68,11 +68,11 @@ class Tests(unittest.TestCase):
 
         ground_control = GroundControl(self.planets)
 
-        res, work, report = ground_control.mission(rocket, [], ground_control.get_planets()[0])
+        report = ground_control.mission(rocket, [], ground_control.get_planets()[0])
 
         # Do not change
-        self.assertEqual(res, False)
-        self.assertEqual(work, 0)
+        self.assertEqual(ground_control.get_mission_result(), False)
+        self.assertEqual(ground_control.get_work(), 0)
         self.assertEqual(report, "The travel has failed.\n0 crew members.\nRocket has 100 fuel left.\nCrew has worked 0 units.")
         ####
 
@@ -82,16 +82,15 @@ class Tests(unittest.TestCase):
         rocket.set_name("Soyuz")
         rocket.set_fuel(100)
         rocket.set_food(100)
-        crew = [Astronaut("Neil", 10)]
-        rocket.set_crew(crew)
+        rocket.add_2_crew(Astronaut("Neil", 10))
 
         ground_control = GroundControl(self.planets)
 
-        res, work, report = ground_control.mission(rocket, crew, Planet("uranus", 1, "planet"))
+        report = ground_control.mission(rocket, rocket.get_crew(), Planet("uranus", 1, "planet"))
 
         # Do not change
-        self.assertEqual(res, False)
-        self.assertEqual(work, 0)
+        self.assertEqual(ground_control.get_mission_result(), False)
+        self.assertEqual(ground_control.get_work(), 0)
         self.assertEqual(report, "The travel has failed.\n1 crew members.\nRocket has 100 fuel left.\nCrew has worked 0 units.")
         ####
 

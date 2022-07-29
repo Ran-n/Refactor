@@ -1,6 +1,7 @@
 from typing import Optional, List
 
 from src.astronaut import Astronaut
+from src.planet import Planet
 
 class Rocket:
     __name: Optional[str]
@@ -60,7 +61,7 @@ class Rocket:
     def food_per_day(self) -> int:
         return len(self.get_crew()) * 3
 
-    def travel(self, destination) -> (bool, int):
+    def travel(self, destination: Planet) -> (bool, int):
         self.launch()
         time = destination.get_time()
         consume = self.fuel_per_hour()
@@ -73,9 +74,9 @@ class Rocket:
             for crew in self.get_crew():
                 total_work += crew.work(time)
             return True, total_work
-        else:
-            return False, total_work
 
-    def board_rocket(astronaut) -> None:
+        return False, total_work
+
+    def board_rocket(astronaut: Astronaut) -> None:
         self.add_2_crew(astronaut)
         astronaut.set_on_rocket()

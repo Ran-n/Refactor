@@ -20,7 +20,6 @@ def main():
 
     gc = GroundControl(planets)
 
-    _, _, report = gc.mission(rocket, rocket.get_crew(), gc.get_planets()[0])
-    print(report)
+    print(gc.mission(rocket, rocket.get_crew(), gc.get_planet(0)))
 
 main()
