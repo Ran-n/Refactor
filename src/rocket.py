@@ -61,22 +61,20 @@ class Rocket:
     def food_per_day(self) -> int:
         return len(self.get_crew()) * 3
 
-    def travel(self, destination: Planet) -> (bool, int):
-        self.launch()
-        time = destination.get_time()
-        consume = self.fuel_per_hour()
-        total = time * consume
-
-        food_needed = self.food_per_day() * time/24
-
-        total_work = 0
-        if self.get_fuel() >= total and food_needed <= self.get_food():
-            for crew in self.get_crew():
-                total_work += crew.work(time)
-            return True, total_work
-
-        return False, total_work
-
     def board_rocket(astronaut: Astronaut) -> None:
         self.add_2_crew(astronaut)
         astronaut.set_on_rocket()
+
+    def travel(self, destination: Planet) -> (bool, int):
+        total_work = 0
+        food_needed =
+
+        self.launch()
+
+        # if fuel and food needed is less/equal than food
+        if (self.get_fuel() >= (destination.get_time() * self.fuel_per_hour())) and ((self.food_per_day() * destination.get_time()/24) <= self.get_food()):
+            for crew in self.get_crew():
+                total_work += crew.work(destination.get_time())
+            return True, total_work
+
+        return False, total_work
