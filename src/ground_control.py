@@ -18,7 +18,7 @@ class GroundControl:
         self.__planets = new_planets
 
 
-    def get_planet_names(self) -> List[Planets]:
+    def get_planet_names(self) -> List[Planet]:
         return [ele.get_name() for ele in self.get_planets()]
 
 
