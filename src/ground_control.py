@@ -66,7 +66,7 @@ class GroundControl:
         f"Rocket has {rocket.get_fuel()} fuel left.\n"+\
         f"Crew has worked {work} units."
 
-    def mission(self, rocket: Rocket, astronauts: Astronaut, destination: Planet) -> (bool, int, str):
+    def mission(self, rocket: Rocket, astronauts: Astronaut, destination: Planet) -> str:
         if (len(rocket.get_crew()) == 0) or (rocket.get_fuel() == 9) or (destination.get_name() not in self.get_planet_names()):
             self.set_mission_parameters(False, 0)
         else:
