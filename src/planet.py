@@ -21,5 +21,5 @@ class Planet:
 
     def get_category(self) -> str:
         return self.__category
-    def set_category(self, new_category) -> None:
+    def set_category(self, new_category: str) -> None:
         self.__category = new_category
